@@ -1,0 +1,151 @@
+/* ─────────────────────────────────────────────
+   aihub.com.my — Global Styles
+   Palette: Terracotta #E07856 · Forest #264E36 · Cream #F4EDE4
+   ───────────────────────────────────────────── */
+
+/* Clash Display from Fontshare (free for commercial use) */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+
+/* Inter from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS custom properties ─────────────────── */
+:root {
+  --color-terracotta:  #E07856;
+  --color-forest:      #264E36;
+  --color-cream:       #F4EDE4;
+  --color-cream-light: #FDFAF7;
+  --color-ink:         #1A1A1A;
+
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius-card: 1rem;
+  --shadow-card: 0 2px 16px 0 rgba(38,78,54,0.08);
+  --shadow-hover: 0 8px 32px 0 rgba(224,120,86,0.18);
+}
+
+/* ── Base ───────────────────────────────────── */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    background-color: var(--color-cream-light);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-semibold leading-tight tracking-tight;
+  }
+
+  ::selection {
+    background-color: var(--color-terracotta);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ── Component shortcuts ────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold text-white
+           transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+    background-color: var(--color-terracotta);
+    font-family: var(--font-display);
+  }
+  .btn-primary:hover {
+    background-color: #c96840;
+    box-shadow: var(--shadow-hover);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold
+           border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+    border-color: var(--color-forest);
+    color: var(--color-forest);
+    font-family: var(--font-display);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-forest);
+    color: white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium
+           transition-all duration-150 hover:bg-terracotta-50;
+    color: var(--color-forest);
+    font-family: var(--font-display);
+  }
+
+  .card {
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    @apply overflow-hidden transition-all duration-300;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    @apply -translate-y-1;
+  }
+
+  .section-label {
+    @apply inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4;
+    background-color: rgba(224, 120, 86, 0.12);
+    color: var(--color-terracotta);
+    font-family: var(--font-display);
+  }
+
+  .tag-chip {
+    @apply inline-block text-xs font-medium px-3 py-1 rounded-full;
+    background-color: rgba(38, 78, 54, 0.1);
+    color: var(--color-forest);
+  }
+
+  .avatar-ring {
+    @apply rounded-full border-2 border-white object-cover;
+  }
+
+  .live-dot {
+    @apply inline-block w-2 h-2 rounded-full animate-pulse-slow;
+    background-color: #22c55e;
+  }
+}
+
+/* ── Utilities ───────────────────────────────── */
+@layer utilities {
+  .text-terracotta { color: var(--color-terracotta); }
+  .text-forest     { color: var(--color-forest); }
+  .bg-cream        { background-color: var(--color-cream); }
+  .bg-cream-light  { background-color: var(--color-cream-light); }
+
+  .font-display    { font-family: var(--font-display); }
+  .font-body       { font-family: var(--font-body); }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-terracotta) 0%, #c96840 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ── Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar          { width: 6px; }
+::-webkit-scrollbar-track    { background: var(--color-cream); }
+::-webkit-scrollbar-thumb    { background: var(--color-terracotta); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #c96840; }
