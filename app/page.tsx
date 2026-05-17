@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import CommunityJoin from '@/components/CommunityJoin';
+import HeroSection from '@/components/HeroSection';
 import { orgJsonLd } from '@/lib/seo';
 
 export default function HomePage() {
@@ -11,119 +11,7 @@ export default function HomePage() {
       />
 
       {/* ── HERO ───────────────────────────────────────── */}
-      <section className="relative overflow-hidden hex-bg" style={{ minHeight: '92vh' }}>
-
-        {/* Radial gold glow */}
-        <div className="absolute inset-0 pointer-events-none"
-             style={{ background: 'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201,168,76,0.10) 0%, transparent 65%)' }} />
-
-        {/* Circuit node dots */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-          {[
-            { x: '12%', y: '18%', size: 3, delay: '0s'   },
-            { x: '88%', y: '22%', size: 2, delay: '0.8s' },
-            { x: '75%', y: '55%', size: 4, delay: '1.5s' },
-            { x: '8%',  y: '65%', size: 2, delay: '2.1s' },
-            { x: '55%', y: '80%', size: 3, delay: '0.4s' },
-            { x: '92%', y: '78%', size: 2, delay: '1.2s' },
-          ].map((dot, i) => (
-            <div key={i} className="absolute rounded-full pulse-gold"
-                 style={{ left: dot.x, top: dot.y, width: dot.size + 'px', height: dot.size + 'px',
-                          backgroundColor: '#C9A84C', animationDelay: dot.delay, boxShadow: '0 0 8px #C9A84C' }} />
-          ))}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.06]" preserveAspectRatio="none">
-            <line x1="12%" y1="18%" x2="55%" y2="80%" stroke="#C9A84C" strokeWidth="0.5"/>
-            <line x1="88%" y1="22%" x2="75%" y2="55%" stroke="#C9A84C" strokeWidth="0.5"/>
-            <line x1="75%" y1="55%" x2="55%" y2="80%" stroke="#C9A84C" strokeWidth="0.5"/>
-            <line x1="8%"  y1="65%" x2="12%" y2="18%" stroke="#C9A84C" strokeWidth="0.5"/>
-            <line x1="92%" y1="78%" x2="75%" y2="55%" stroke="#C9A84C" strokeWidth="0.5"/>
-          </svg>
-        </div>
-
-        {/* KL Skyline */}
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none overflow-hidden">
-          <svg viewBox="0 0 1200 180" xmlns="http://www.w3.org/2000/svg"
-               className="w-full" preserveAspectRatio="xMidYMax slice">
-            <g fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.12)" strokeWidth="0.5">
-              <rect x="0"   y="110" width="60"  height="70" />
-              <rect x="50"  y="95"  width="45"  height="85" />
-              <rect x="90"  y="120" width="35"  height="60" />
-              <rect x="120" y="85"  width="50"  height="95" />
-              <rect x="165" y="105" width="40"  height="75" />
-              <rect x="900" y="100" width="55"  height="80" />
-              <rect x="945" y="90"  width="40"  height="90" />
-              <rect x="980" y="115" width="45"  height="65" />
-              <rect x="1020" y="85" width="60"  height="95" />
-              <rect x="1075" y="105" width="50" height="75" />
-              <rect x="1120" y="95"  width="80" height="85" />
-            </g>
-            <g fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" strokeWidth="0.6">
-              <rect x="510" y="10" width="44" height="170" />
-              <polygon points="532,0 522,16 542,16" />
-              <rect x="510" y="80" width="44" height="6" />
-              <rect x="646" y="10" width="44" height="170" />
-              <polygon points="668,0 658,16 678,16" />
-              <rect x="646" y="80" width="44" height="6" />
-              <rect x="554" y="76" width="92" height="14" rx="2" />
-              <rect x="560" y="80" width="80" height="6" />
-            </g>
-            <g fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.18)" strokeWidth="0.5">
-              <rect x="592" y="28" width="16" height="152" />
-              <rect x="584" y="28" width="32" height="22" rx="3" />
-              <line x1="600" y1="0" x2="600" y2="28" stroke="rgba(201,168,76,0.25)" strokeWidth="1.5"/>
-            </g>
-            <g fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.12)" strokeWidth="0.4">
-              <rect x="200" y="70"  width="65"  height="110" />
-              <rect x="260" y="90"  width="50"  height="90"  />
-              <rect x="305" y="60"  width="75"  height="120" />
-              <rect x="375" y="80"  width="55"  height="100" />
-              <rect x="425" y="100" width="40"  height="80"  />
-              <rect x="460" y="75"  width="55"  height="105" />
-              <rect x="700" y="75"  width="55"  height="105" />
-              <rect x="750" y="90"  width="45"  height="90"  />
-              <rect x="790" y="65"  width="65"  height="115" />
-              <rect x="850" y="85"  width="55"  height="95"  />
-            </g>
-            <rect x="0" y="178" width="1200" height="2" fill="rgba(201,168,76,0.15)" />
-            <circle cx="532" cy="2"  r="2" fill="#C9A84C" opacity="0.5" />
-            <circle cx="668" cy="2"  r="2" fill="#C9A84C" opacity="0.5" />
-            <circle cx="600" cy="0"  r="1.5" fill="#C9A84C" opacity="0.6" />
-          </svg>
-          <div className="absolute bottom-0 left-0 right-0 h-16"
-               style={{ background: 'linear-gradient(to top, rgba(6,14,28,0.6), transparent)' }} />
-        </div>
-
-        {/* Hero content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-52 sm:pb-56">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full pulse-gold" style={{ backgroundColor: '#C9A84C' }} />
-            <span className="section-label">Malaysia's AI Community — Launching Soon</span>
-            <span className="w-1.5 h-1.5 rounded-full pulse-gold" style={{ backgroundColor: '#C9A84C', animationDelay: '0.5s' }} />
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-[1.05] max-w-3xl">
-            Where AI builders<br />
-            <span className="gold-text">come together.</span>
-          </h1>
-
-          <p className="text-xl mb-10 leading-relaxed max-w-xl" style={{ color: '#B8CCE0' }}>
-            AI Hub Malaysia is building the premier community for AI practitioners,
-            founders, and researchers across Malaysia. Be among the first to join.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/community" className="btn-primary text-base py-3.5 px-7">
-              Join the Community
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-            <Link href="/about" className="btn-outline text-base py-3.5 px-7">
-              Our Mission
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ── WHAT WE'RE BUILDING ─────────────────────────── */}
       <section className="py-24 max-w-6xl mx-auto px-4 sm:px-6">
