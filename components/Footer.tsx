@@ -86,8 +86,8 @@ export default function Footer() {
                style={{ color: 'rgba(184,204,224,0.4)' }}>Community</p>
             <ul className="space-y-2.5">
               {[
-                { href: process.env.NEXT_PUBLIC_DISCORD_URL  || '#', label: 'Discord Community' },
-                { href: process.env.NEXT_PUBLIC_TELEGRAM_URL || '#', label: 'Telegram Channel'  },
+                { href: process.env.NEXT_PUBLIC_DISCORD_URL  || '#',                        label: 'Discord Community' },
+                { href: process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/aihubmy', label: 'Telegram Channel'  },
               ].map(({ href, label }) => (
                 <li key={label}>
                   <a
