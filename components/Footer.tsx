@@ -72,4 +72,63 @@ export default function Footer() {
                     style={{ color: 'rgba(184,204,224,0.60)' }}
                   >
                     <span className="w-1 h-1 rounded-full flex-shrink-0 transition-all group-hover:w-2"
-                          style={{ backgroun
+                          style={{ backgroundColor: '#C9A84C' }} />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Community */}
+          <div>
+            <p className="font-display font-semibold text-xs uppercase tracking-widest mb-4"
+               style={{ color: 'rgba(184,204,224,0.4)' }}>Community</p>
+            <ul className="space-y-2.5">
+              {[
+                { href: process.env.NEXT_PUBLIC_DISCORD_URL  || '#', label: 'Discord Community' },
+                { href: process.env.NEXT_PUBLIC_TELEGRAM_URL || '#', label: 'Telegram Channel'  },
+              ].map(({ href, label }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm transition-colors hover:text-white flex items-center gap-2 group"
+                    style={{ color: 'rgba(184,204,224,0.60)' }}
+                  >
+                    <span className="w-1 h-1 rounded-full flex-shrink-0 transition-all group-hover:w-2"
+                          style={{ backgroundColor: '#C9A84C' }} />
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 p-4 rounded-xl border" style={{ borderColor: 'rgba(201,168,76,0.20)', backgroundColor: 'rgba(201,168,76,0.05)' }}>
+              <p className="text-xs font-semibold mb-1" style={{ color: '#C9A84C' }}>Stay Updated</p>
+              <p className="text-xs" style={{ color: 'rgba(184,204,224,0.55)' }}>
+                Follow us for the latest AI events, workshops, and news across Malaysia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Gold rule */}
+        <div className="gold-rule mb-6" />
+
+        {/* Legal */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs" style={{ color: 'rgba(184,204,224,0.35)' }}>
+            © {year} AITG Sdn Bhd · 202601016521 (1678618-W)
+          </p>
+          <div className="flex items-center gap-5 text-xs" style={{ color: 'rgba(184,204,224,0.35)' }}>
+            <span className="text-[10px]" style={{ color: 'rgba(201,168,76,0.40)' }}>★ AI HUB MALAYSIA ★</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms"   className="hover:text-white transition-colors">Terms</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

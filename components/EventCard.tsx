@@ -120,4 +120,31 @@ export default function EventCard({ event, featured = false }: Props) {
                 />
               ))}
               {event.attendees.length > 5 && (
-                <span className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs 
+                <span className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-medium"
+                      style={{ backgroundColor: '#162A50', borderColor: '#112040', color: '#8DA4BE' }}>
+                  +{event.totalRsvp - 5}
+                </span>
+              )}
+            </div>
+            <span className="text-xs" style={{ color: '#8DA4BE' }}>
+              {event.totalRsvp} going
+            </span>
+          </div>
+
+          {almostFull ? (
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(251,191,36,0.12)', color: '#FBD34D', border: '1px solid rgba(251,191,36,0.25)' }}>
+              {spotsLeft} spots left
+            </span>
+          ) : isPast ? (
+            <span className="text-xs" style={{ color: 'rgba(141,164,190,0.45)' }}>Past event</span>
+          ) : (
+            <span className="text-xs font-semibold font-display group-hover:underline" style={{ color: '#C9A84C' }}>
+              RSVP →
+            </span>
+          )}
+        </div>
+      </div>
+    </Link>
+  );
+}
