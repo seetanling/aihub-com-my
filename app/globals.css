@@ -1,12 +1,10 @@
 /* ─────────────────────────────────────────────
    aihub.com.my — Global Styles
-   Palette: Terracotta #E07856 · Forest #264E36 · Cream #F4EDE4
+   Palette: Navy #071120 · Gold #C9A84C · Silver #8DA4BE
+   Design direction: AI Hub Malaysia badge / institutional
    ───────────────────────────────────────────── */
 
-/* Clash Display from Fontshare (free for commercial use) */
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
-
-/* Inter from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -15,18 +13,28 @@
 
 /* ── CSS custom properties ─────────────────── */
 :root {
-  --color-terracotta:  #E07856;
-  --color-forest:      #264E36;
-  --color-cream:       #F4EDE4;
-  --color-cream-light: #FDFAF7;
-  --color-ink:         #1A1A1A;
+  /* Core palette — from logo */
+  --navy-deep:    #060E1C;
+  --navy-mid:     #0C1C35;
+  --navy-card:    #112040;
+  --navy-elevated:#162A50;
+  --gold:         #C9A84C;
+  --gold-light:   #E2CA7D;
+  --gold-pale:    rgba(201, 168, 76, 0.12);
+  --gold-border:  rgba(201, 168, 76, 0.30);
+  --silver:       #8DA4BE;
+  --silver-light: #B8CCE0;
+  --silver-pale:  rgba(141, 164, 190, 0.12);
+  --white:        #FFFFFF;
+  --ink-muted:    rgba(184, 204, 224, 0.65);
 
   --font-display: 'Clash Display', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
-  --radius-card: 1rem;
-  --shadow-card: 0 2px 16px 0 rgba(38,78,54,0.08);
-  --shadow-hover: 0 8px 32px 0 rgba(224,120,86,0.18);
+  --radius-card:  0.875rem;
+  --shadow-card:  0 2px 20px 0 rgba(0, 0, 0, 0.40);
+  --shadow-gold:  0 0 24px 0 rgba(201, 168, 76, 0.20);
+  --shadow-hover: 0 8px 40px 0 rgba(201, 168, 76, 0.18);
 }
 
 /* ── Base ───────────────────────────────────── */
@@ -36,8 +44,8 @@
   }
 
   body {
-    background-color: var(--color-cream-light);
-    color: var(--color-ink);
+    background-color: var(--navy-deep);
+    color: var(--white);
     font-family: var(--font-body);
     @apply antialiased;
   }
@@ -48,104 +56,193 @@
   }
 
   ::selection {
-    background-color: var(--color-terracotta);
-    color: white;
+    background-color: var(--gold);
+    color: var(--navy-deep);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-terracotta);
+    outline: 2px solid var(--gold);
     outline-offset: 3px;
     border-radius: 4px;
   }
 }
 
+/* ── SVG hex tile background ────────────────── */
+.hex-bg {
+  background-color: var(--navy-deep);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-4l24-14V18L28 4 4 18v30l24 14z' fill='%23C9A84C' fill-opacity='0.06'/%3E%3Cpath d='M28 100L0 84V66l28 16 28-16v18L28 100z' fill='%23C9A84C' fill-opacity='0.04'/%3E%3C/svg%3E");
+}
+
 /* ── Component shortcuts ────────────────────── */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold text-white
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
            transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
-    background-color: var(--color-terracotta);
+    background: linear-gradient(135deg, var(--gold) 0%, #B8902A 100%);
+    color: var(--navy-deep);
     font-family: var(--font-display);
+    box-shadow: 0 4px 16px rgba(201,168,76,0.30);
   }
   .btn-primary:hover {
-    background-color: #c96840;
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 6px 28px rgba(201,168,76,0.45);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold
-           border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
-    border-color: var(--color-forest);
-    color: var(--color-forest);
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
+           transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+    border: 1.5px solid var(--gold-border);
+    color: var(--gold-light);
     font-family: var(--font-display);
+    background: transparent;
   }
   .btn-outline:hover {
-    background-color: var(--color-forest);
-    color: white;
+    background: var(--gold-pale);
+    border-color: var(--gold);
   }
 
   .btn-ghost {
     @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium
-           transition-all duration-150 hover:bg-terracotta-50;
-    color: var(--color-forest);
+           transition-all duration-150;
+    color: var(--silver-light);
     font-family: var(--font-display);
   }
+  .btn-ghost:hover {
+    background: var(--silver-pale);
+    color: var(--white);
+  }
 
+  /* Dark card with gold border shimmer */
   .card {
-    background: white;
+    background: var(--navy-card);
+    border: 1px solid rgba(201,168,76,0.15);
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
     @apply overflow-hidden transition-all duration-300;
   }
   .card:hover {
+    border-color: rgba(201,168,76,0.40);
     box-shadow: var(--shadow-hover);
     @apply -translate-y-1;
   }
 
   .section-label {
     @apply inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4;
-    background-color: rgba(224, 120, 86, 0.12);
-    color: var(--color-terracotta);
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid var(--gold-border);
     font-family: var(--font-display);
   }
 
   .tag-chip {
     @apply inline-block text-xs font-medium px-3 py-1 rounded-full;
-    background-color: rgba(38, 78, 54, 0.1);
-    color: var(--color-forest);
+    background: var(--silver-pale);
+    color: var(--silver-light);
   }
 
-  .avatar-ring {
-    @apply rounded-full border-2 border-white object-cover;
+  /* Hexagon badge — inline icon mark */
+  .hex-badge {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  /* Gold star separator */
+  .star-sep::before,
+  .star-sep::after {
+    content: '★';
+    color: var(--gold);
+    margin: 0 12px;
+    font-size: 10px;
+    vertical-align: middle;
+    opacity: 0.7;
+  }
+
+  /* Metallic gradient text */
+  .gold-text {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #B8902A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .silver-text {
+    background: linear-gradient(135deg, var(--silver-light) 0%, var(--silver) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Circuit node dot */
+  .node-dot {
+    @apply inline-block w-1.5 h-1.5 rounded-full;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold);
   }
 
   .live-dot {
-    @apply inline-block w-2 h-2 rounded-full animate-pulse-slow;
-    background-color: #22c55e;
+    @apply inline-block w-2 h-2 rounded-full animate-pulse;
+    background-color: var(--gold);
+    box-shadow: 0 0 8px var(--gold);
+  }
+
+  .avatar-ring {
+    @apply rounded-full border-2 object-cover;
+    border-color: var(--gold-border);
+  }
+
+  /* Gold rule divider */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.4;
   }
 }
 
 /* ── Utilities ───────────────────────────────── */
 @layer utilities {
-  .text-terracotta { color: var(--color-terracotta); }
-  .text-forest     { color: var(--color-forest); }
-  .bg-cream        { background-color: var(--color-cream); }
-  .bg-cream-light  { background-color: var(--color-cream-light); }
+  .text-gold        { color: var(--gold); }
+  .text-gold-light  { color: var(--gold-light); }
+  .text-silver      { color: var(--silver); }
+  .text-silver-light{ color: var(--silver-light); }
+  .text-muted-hub   { color: var(--ink-muted); }
 
-  .font-display    { font-family: var(--font-display); }
-  .font-body       { font-family: var(--font-body); }
+  .bg-navy-deep     { background-color: var(--navy-deep); }
+  .bg-navy-mid      { background-color: var(--navy-mid); }
+  .bg-navy-card     { background-color: var(--navy-card); }
+  .bg-gold-pale     { background-color: var(--gold-pale); }
 
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-terracotta) 0%, #c96840 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .border-gold      { border-color: var(--gold); }
+  .border-gold-faint{ border-color: var(--gold-border); }
+
+  .font-display     { font-family: var(--font-display); }
+  .font-body        { font-family: var(--font-body); }
 }
 
 /* ── Scrollbar ───────────────────────────────── */
-::-webkit-scrollbar          { width: 6px; }
-::-webkit-scrollbar-track    { background: var(--color-cream); }
-::-webkit-scrollbar-thumb    { background: var(--color-terracotta); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #c96840; }
+::-webkit-scrollbar          { width: 5px; }
+::-webkit-scrollbar-track    { background: var(--navy-mid); }
+::-webkit-scrollbar-thumb    { background: var(--gold); border-radius: 3px; opacity: 0.5; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+/* ── Animations ──────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--gold) 25%, var(--gold-light) 50%, var(--gold) 75%);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--gold); }
+  50%       { opacity: 0.6; box-shadow: 0 0 14px var(--gold); }
+}
+.pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }

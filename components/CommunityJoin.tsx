@@ -11,25 +11,17 @@ export default function CommunityJoin({ compact = false }: Props) {
   if (compact) {
     return (
       <div className="flex flex-col sm:flex-row gap-3">
-        <a
-          href={discordUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2.5 px-5 py-3 rounded-2xl font-semibold text-sm font-display
-                     transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
-          style={{ backgroundColor: '#5865F2', color: 'white' }}
-        >
+        <a href={discordUrl} target="_blank" rel="noopener noreferrer"
+           className="flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold text-sm font-display
+                      transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+           style={{ backgroundColor: '#5865F2', color: 'white' }}>
           <DiscordIcon className="w-5 h-5 flex-shrink-0" />
           Join Discord
         </a>
-        <a
-          href={telegramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2.5 px-5 py-3 rounded-2xl font-semibold text-sm font-display
-                     transition-all duration-200 hover:scale-[1.02] hover:shadow-md"
-          style={{ backgroundColor: '#26A5E4', color: 'white' }}
-        >
+        <a href={telegramUrl} target="_blank" rel="noopener noreferrer"
+           className="flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold text-sm font-display
+                      transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+           style={{ backgroundColor: '#26A5E4', color: 'white' }}>
           <TelegramIcon className="w-5 h-5 flex-shrink-0" />
           Join Telegram
         </a>
@@ -38,40 +30,48 @@ export default function CommunityJoin({ compact = false }: Props) {
   }
 
   return (
-    <section className="relative overflow-hidden rounded-3xl"
-             style={{ backgroundColor: 'var(--color-forest)' }}>
-      {/* Decorative circle */}
-      <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10"
-           style={{ backgroundColor: 'var(--color-terracotta)' }} />
-      <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full opacity-8"
-           style={{ backgroundColor: 'var(--color-cream)' }} />
+    <div className="relative overflow-hidden rounded-2xl hex-bg"
+         style={{ border: '1px solid rgba(201,168,76,0.25)' }}>
+
+      {/* Radial glow */}
+      <div className="absolute inset-0 pointer-events-none"
+           style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+
+      {/* Corner hex decoration */}
+      <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <polygon points="100,5 190,52 190,148 100,195 10,148 10,52"
+            fill="none" stroke="#C9A84C" strokeWidth="1" />
+          <polygon points="100,30 165,67 165,133 100,170 35,133 35,67"
+            fill="none" stroke="#C9A84C" strokeWidth="0.6" opacity="0.5" />
+          <circle cx="100" cy="100" r="6" fill="#C9A84C" opacity="0.3" />
+        </svg>
+      </div>
 
       <div className="relative z-10 p-8 sm:p-12">
-        <span className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5 font-display"
-              style={{ backgroundColor: 'rgba(224,120,86,0.2)', color: 'var(--color-terracotta)' }}>
-          Community
-        </span>
 
-        <h2 className="text-3xl sm:text-4xl font-display font-semibold text-white mb-3 leading-tight">
-          The conversation doesn't<br />stop after the event.
+        {/* Label */}
+        <div className="flex items-center gap-2 mb-5">
+          <span className="text-xs" style={{ color: '#C9A84C' }}>★</span>
+          <span className="text-xs font-display font-semibold uppercase tracking-widest" style={{ color: '#C9A84C' }}>Community</span>
+          <span className="text-xs" style={{ color: '#C9A84C' }}>★</span>
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-tight">
+          The conversation doesn&apos;t<br />stop after the event.
         </h2>
 
-        <p className="text-lg mb-8 leading-relaxed max-w-xl"
-           style={{ color: 'rgba(244,237,228,0.75)' }}>
-          Join our Discord and Telegram to keep the energy going — share what you're building,
-          ask questions, find collaborators, and get early access to every event.
+        <p className="text-lg mb-8 leading-relaxed max-w-xl" style={{ color: '#8DA4BE' }}>
+          Join our Discord and Telegram to keep the energy going — share what you&apos;re building,
+          find collaborators, and get early access to every event.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          {/* Discord */}
-          <a
-            href={discordUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-4 rounded-2xl font-semibold font-display
-                       transition-all duration-200 hover:scale-[1.02] hover:brightness-110"
-            style={{ backgroundColor: '#5865F2', color: 'white' }}
-          >
+        {/* Channel buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href={discordUrl} target="_blank" rel="noopener noreferrer"
+             className="flex items-center gap-3 px-6 py-4 rounded-xl font-semibold font-display
+                        transition-all duration-200 hover:scale-[1.02] hover:brightness-110"
+             style={{ backgroundColor: '#5865F2', color: 'white' }}>
             <DiscordIcon className="w-6 h-6 flex-shrink-0" />
             <div className="text-left">
               <p className="text-sm">Join on Discord</p>
@@ -79,15 +79,10 @@ export default function CommunityJoin({ compact = false }: Props) {
             </div>
           </a>
 
-          {/* Telegram */}
-          <a
-            href={telegramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-4 rounded-2xl font-semibold font-display
-                       transition-all duration-200 hover:scale-[1.02] hover:brightness-110"
-            style={{ backgroundColor: '#26A5E4', color: 'white' }}
-          >
+          <a href={telegramUrl} target="_blank" rel="noopener noreferrer"
+             className="flex items-center gap-3 px-6 py-4 rounded-xl font-semibold font-display
+                        transition-all duration-200 hover:scale-[1.02] hover:brightness-110"
+             style={{ backgroundColor: '#26A5E4', color: 'white' }}>
             <TelegramIcon className="w-6 h-6 flex-shrink-0" />
             <div className="text-left">
               <p className="text-sm">Join on Telegram</p>
@@ -97,23 +92,29 @@ export default function CommunityJoin({ compact = false }: Props) {
         </div>
 
         {/* Social proof */}
-        <div className="mt-8 flex items-center gap-3">
+        <div className="flex items-center gap-3 pt-6" style={{ borderTop: '1px solid rgba(201,168,76,0.15)' }}>
           <div className="flex -space-x-2">
             {[
-              'https://api.dicebear.com/9.x/thumbs/svg?seed=comm1&backgroundColor=E07856',
-              'https://api.dicebear.com/9.x/thumbs/svg?seed=comm2&backgroundColor=264E36',
-              'https://api.dicebear.com/9.x/thumbs/svg?seed=comm3&backgroundColor=C96840',
-              'https://api.dicebear.com/9.x/thumbs/svg?seed=comm4&backgroundColor=3D7152',
-            ].map((src, i) => (
-              <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-forest-500" />
+              ['comm1', 'C9A84C'],
+              ['comm2', '162A50'],
+              ['comm3', 'B8902A'],
+              ['comm4', '1E3A5F'],
+            ].map(([seed, bg], i) => (
+              <img
+                key={i}
+                src={`https://api.dicebear.com/9.x/thumbs/svg?seed=${seed}&backgroundColor=${bg}`}
+                alt=""
+                className="w-8 h-8 rounded-full border-2"
+                style={{ borderColor: '#112040' }}
+              />
             ))}
           </div>
-          <p className="text-sm" style={{ color: 'rgba(244,237,228,0.65)' }}>
-            Join 400+ AI builders, founders, and researchers in Malaysia
+          <p className="text-sm" style={{ color: '#8DA4BE' }}>
+            Join <span style={{ color: '#E2CA7D', fontWeight: 600 }}>400+</span> AI builders, founders &amp; researchers in Malaysia
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
