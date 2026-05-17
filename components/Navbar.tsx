@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const NAV_LINKS = [
-  { href: '/events',    label: 'Events'    },
   { href: '/community', label: 'Community' },
   { href: '/about',     label: 'About'     },
 ];
@@ -97,8 +96,8 @@ export default function Navbar() {
 
         {/* ── CTA + hamburger ─────────────────────── */}
         <div className="flex items-center gap-3">
-          <Link href="/events" className="hidden sm:inline-flex btn-primary text-sm py-2 px-5">
-            Join an Event
+          <Link href="/community" className="hidden sm:inline-flex btn-primary text-sm py-2 px-5">
+            Join the Community
           </Link>
 
           <button
@@ -139,11 +138,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/events"
+            href="/community"
             onClick={() => setOpen(false)}
             className="btn-primary text-sm py-2.5 mt-1 justify-center"
           >
-            Join an Event
+            Join the Community
           </Link>
         </div>
       )}
