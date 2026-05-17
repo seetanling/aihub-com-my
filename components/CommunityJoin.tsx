@@ -5,8 +5,8 @@ type Props = {
 };
 
 export default function CommunityJoin({ compact = false }: Props) {
-  const discordUrl  = process.env.NEXT_PUBLIC_DISCORD_URL  || '#';
-  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || '#';
+  const discordUrl  = process.env.NEXT_PUBLIC_DISCORD_URL  || 'https://discord.gg/CYg6sR93';
+  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/aihubmy';
 
   if (compact) {
     return (
@@ -58,12 +58,12 @@ export default function CommunityJoin({ compact = false }: Props) {
         </div>
 
         <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-tight">
-          The conversation doesn&apos;t<br />stop after the event.
+          Join the conversation.<br />Be part of something bigger.
         </h2>
 
         <p className="text-lg mb-8 leading-relaxed max-w-xl" style={{ color: '#8DA4BE' }}>
-          Join our Discord and Telegram to keep the energy going — share what you&apos;re building,
-          find collaborators, and get early access to every event.
+          Join our Discord and Telegram to connect with AI builders across Malaysia — share what
+          you&apos;re working on, find collaborators, and stay ahead of everything happening in AI.
         </p>
 
         {/* Channel buttons */}
