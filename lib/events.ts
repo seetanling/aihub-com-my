@@ -203,7 +203,7 @@ export function getEventsByCategory(
 
 /** All unique categories */
 export function getCategories(): Event['category'][] {
-  return [...new Set(EVENTS.map((e) => e.category))];
+  return Array.from(new Set(EVENTS.map((e) => e.category)));
 }
 
 /** Format date for display, e.g. "Thu, 18 June 2026" */
