@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import CommunityJoin from '@/components/CommunityJoin';
 import HeroSection from '@/components/HeroSection';
 import { orgJsonLd } from '@/lib/seo';
