@@ -126,62 +126,6 @@ export default function TermsPage() {
 
       </div>
 
-      <style jsx>{`
-        .prose-custom h2 {
-          font-family: var(--font-display, sans-serif);
-          font-size: 1.2rem;
-          font-weight: 700;
-          color: white;
-          margin-bottom: 0.75rem;
-        }
-        .prose-custom p {
-          color: rgba(184,204,224,0.75);
-          line-height: 1.8;
-          margin-bottom: 0.75rem;
-          font-size: 0.95rem;
-        }
-        .prose-custom ul {
-          list-style: none;
-          padding: 0;
-          margin: 0.5rem 0 0.75rem;
-        }
-        .prose-custom ul li {
-          color: rgba(184,204,224,0.75);
-          font-size: 0.95rem;
-          padding-left: 1.25rem;
-          position: relative;
-          margin-bottom: 0.4rem;
-          line-height: 1.7;
-        }
-        .prose-custom ul li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0.65rem;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background: #C9A84C;
-        }
-        .prose-custom a {
-          color: #C9A84C;
-          text-decoration: none;
-        }
-        .prose-custom a:hover {
-          text-decoration: underline;
-        }
-        .prose-custom strong {
-          color: rgba(184,204,224,0.90);
-          font-weight: 600;
-        }
-        .prose-custom section {
-          padding-bottom: 1.5rem;
-          border-bottom: 1px solid rgba(201,168,76,0.08);
-        }
-        .prose-custom section:last-child {
-          border-bottom: none;
-        }
-      `}</style>
     </main>
   );
 }
