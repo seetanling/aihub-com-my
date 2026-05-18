@@ -63,7 +63,6 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { href: '/news',      label: 'Community News'     },
-                { href: '/events',    label: 'Upcoming Events'    },
                 { href: '/community', label: 'Join the Community' },
                 { href: '/about',     label: 'About AI Hub MY'    },
               ].map(({ href, label }) => (
