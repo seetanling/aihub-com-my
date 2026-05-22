@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aihub.com.my/sitemap.xml
