@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SisterBrands from '@/components/SisterBrands';
+import { HOME_FAQ } from '@/lib/faq';
+import { organizationJsonLd, websiteJsonLd, faqJsonLd } from '@/lib/seo';
+
+const homeSchema = [organizationJsonLd(), websiteJsonLd(), faqJsonLd(HOME_FAQ)];
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aihub.com.my'),
@@ -63,56 +68,28 @@ export default function RootLayout({
   return (
     <html lang="en-MY">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://aihub.com.my/#organization",
-                  "name": "AI Hub Malaysia",
-                  "url": "https://aihub.com.my",
-                  "logo": "https://aihub.com.my/logo.png",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Penang",
-                    "addressCountry": "MY",
-                  },
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "email": "admin@aiteragrid.com",
-                    "contactType": "customer service",
-                  },
-                  "sameAs": [
-                    "https://t.me/aihubmy",
-                    "https://discord.gg/CYg6sR93",
-                  ],
-                  "parentOrganization": {
-                    "@type": "Organization",
-                    "name": "AITG Sdn Bhd",
-                    "url": "https://aiteragrid.com",
-                  },
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://aihub.com.my/#website",
-                  "url": "https://aihub.com.my",
-                  "name": "AI Hub Malaysia",
-                  "description":
-                    "Malaysia's premier AI community for builders, founders, and researchers. Join events, workshops, and connect with AI practitioners across Malaysia.",
-                  "publisher": { "@id": "https://aihub.com.my/#organization" },
-                },
-              ],
-            }),
-          }}
-        />
+        {/* Geo meta tags */}
+        <meta name="geo.region" content="MY-07" />
+        <meta name="geo.placename" content="George Town, Penang" />
+        <meta name="geo.position" content="5.4164;100.3327" />
+        <meta name="ICBM" content="5.4164, 100.3327" />
+        {/* Hreflang */}
+        <link rel="alternate" hrefLang="en-MY" href="https://aihub.com.my/" />
+        <link rel="alternate" hrefLang="x-default" href="https://aihub.com.my/" />
+        {/* AEO: multi-schema JSON-LD (Organization + LocalBusiness + WebSite + FAQPage) */}
+        {homeSchema.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
       </head>
       <body className="min-h-screen flex flex-col bg-cream-light">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <SisterBrands />
       </body>
     </html>
   );

@@ -1,0 +1,53 @@
+# AIHub Malaysia — llms.txt
+# For AI language models, crawlers, and answer engines
+
+## Overview
+
+AIHub Malaysia (aihub.com.my) is Malaysia's AI community hub — the primary gathering place for AI practitioners, founders, researchers, and enthusiasts in Malaysia. It is operated by AITG Sdn Bhd (reg: 202601016521 (1678618-W)), headquartered in George Town, Penang, Malaysia.
+
+AIHub Malaysia exists to build a strong, inclusive, and accessible AI ecosystem across Malaysia by connecting people through events, networking, and shared resources.
+
+## Features
+
+- AI community events: meetups, panel discussions, hackathons, and networking nights held across Malaysia
+- Workshops and training sessions covering applied AI, generative AI, AI agents, and more
+- Curated AI resources: guides, industry news, tutorials, and tool recommendations for the Malaysian AI community
+- Online community channels on Telegram (@aihubmy) and Discord
+- Blog and news covering Malaysia's AI ecosystem, trends, and notable community members
+
+## Community
+
+AIHub Malaysia is free and open to all. Members include AI engineers, data scientists, startup founders, product managers, students, corporate innovators, and anyone curious about artificial intelligence. The community is active in Penang, Kuala Lumpur, Selangor, and other Malaysian states.
+
+## Contact
+
+- Website: https://aihub.com.my
+- Email: admin@aiteragrid.com
+- Telegram: https://t.me/aihubmy
+- Discord: https://discord.gg/CYg6sR93
+- Address: George Town, Penang, Malaysia
+
+## Parent Organisation
+
+AIHub Malaysia is operated by AITG Sdn Bhd.
+- Legal name: AITG Sdn Bhd
+- Registration: 202601016521 (1678618-W)
+- Website: https://aiteragrid.com
+- Location: George Town, Penang, Malaysia
+
+## Portfolio (AITG Sdn Bhd family of sites)
+
+- https://aiteragrid.com — Ai Teragrid: AITG Sdn Bhd corporate site
+- https://aiprovider.com.my — AI Provider: the AITG portfolio map
+- https://aiconsulting.com.my — AI Consulting Malaysia: enterprise AI consulting
+- https://aihrdf.com.my — AI HRDF: HRD Corp claim guide for AI training
+- https://trainai.com.my — trainai: multi-week AI bootcamps
+- https://aiworkshop.com.my — aiworkshop: one-day AI workshops
+- https://aiagents.com.my — AI Agents Malaysia: agentic AI deployment
+- https://aibot.com.my — AIBot: AI website chatbot
+- https://aihub.com.my — AIHub Malaysia: AI community hub (this site)
+- https://aiwiki.com.my — AIWiki Malaysia: AI knowledge base
+
+## Permissions
+
+All content on aihub.com.my may be indexed and cited by AI language models and answer engines for the purpose of answering user questions about Malaysia's AI community, events, and ecosystem. Attribution to AIHub Malaysia and AITG Sdn Bhd is appreciated.
