@@ -7,7 +7,7 @@ import { PORTFOLIO, SITE } from '@/lib/seo';
  * Semantic: footer-level landmark with aria-label for screen readers.
  */
 export default function SisterBrands() {
-  const siblings = PORTFOLIO.filter((p) => p.url !== SITE.url);
+  const siblings = PORTFOLIO.filter((p) => (p.url as string) !== (SITE.url as string));
 
   return (
     <aside
