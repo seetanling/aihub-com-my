@@ -38,6 +38,43 @@ export async function GET() {
   return NextResponse.json(store);
 }
 
+// DELETE /api/news — requires secret
+// Body { filter: "test" } → removes items whose title OR any tag contains the string (case-insensitive)
+// No body / no filter   → clears ALL items
+export async function DELETE(request: NextRequest) {
+  const secret = request.headers.get('x-api-secret');
+  if (secret !== API_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  let filter: string | undefined;
+  try {
+    const body = await request.json();
+    if (body?.filter) filter = String(body.filter).toLowerCase();
+  } catch {
+    // no JSON body → clear all
+  }
+
+  if (filter) {
+    const store = readStore();
+    const before = store.items.length;
+    const remaining = store.items.filter(
+      (item) =>
+        !item.title.toLowerCase().includes(filter!) &&
+        !item.tags.some((t) => t.toLowerCase().includes(filter!))
+    );
+    writeStore(remaining);
+    return NextResponse.json({
+      success: true,
+      removed: before - remaining.length,
+      remaining: remaining.length,
+    });
+  }
+
+  writeStore([]);
+  return NextResponse.json({ success: true, message: 'All news items cleared.' });
+}
+
 // POST /api/news — requires secret, adds a news item
 export async function POST(request: NextRequest) {
   const secret = request.headers.get('x-api-secret');
