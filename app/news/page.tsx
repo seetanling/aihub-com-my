@@ -129,7 +129,7 @@ export default function NewsPage() {
 
                 <h2
                   className="text-xl font-display font-semibold mb-2"
-                  style={{ color: 'var(--color-forest)' }}
+                  style={{ color: '#1a3a28' }}
                 >
                   {item.title}
                 </h2>

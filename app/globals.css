@@ -28,6 +28,8 @@
   --white:        #FFFFFF;
   --ink-muted:    rgba(184, 204, 224, 0.65);
 
+  --color-forest: #4a9e6a;   /* medium green — readable on dark navy */
+
   --font-display: 'Clash Display', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
